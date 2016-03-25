@@ -1,14 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\DropMe.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\FoodController.cs">
     <Files>
-      <File FileName="Assets\Scripts\GameLogic.cs" Line="39" Column="20" />
-      <File FileName="Assets\Scripts\KiwiController.cs" Line="30" Column="19" />
+      <File FileName="Assets\Scripts\NestController.cs" Line="20" Column="9" />
+      <File FileName="Assets\Scripts\GameLogic.cs" Line="38" Column="25" />
+      <File FileName="Assets\Scripts\KiwiController.cs" Line="24" Column="10" />
       <File FileName="Assets\Scripts\BrickController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\ScrollLoopBackground.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\NestController.cs" Line="16" Column="1" />
-      <File FileName="Assets\Scripts\PanelManager.cs" Line="26" Column="3" />
-      <File FileName="Assets\Scripts\DropMe.cs" Line="18" Column="2" />
+      <File FileName="Assets\Scripts\ScrollLoopBackground.cs" Line="22" Column="49" />
+      <File FileName="Assets\Scripts\FoodController.cs" Line="21" Column="18" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

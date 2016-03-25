@@ -46,10 +46,16 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\BrickController.cs" />
+     <Compile Include="Assets\Scripts\FoodController.cs" />
      <Compile Include="Assets\Scripts\GameLogic.cs" />
      <Compile Include="Assets\Scripts\KiwiController.cs" />
      <Compile Include="Assets\Scripts\NestController.cs" />
      <Compile Include="Assets\Scripts\ScrollLoopBackground.cs" />
+     <None Include="Assets\ScriptsGK\NestController.txt" />
+     <None Include="Assets\ScriptsGK\BrickController.txt" />
+     <None Include="Assets\ScriptsGK\GameLogic.txt" />
+     <None Include="Assets\ScriptsGK\KiwiController.txt" />
+     <None Include="Assets\ScriptsGK\ScrollLoopBackground.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

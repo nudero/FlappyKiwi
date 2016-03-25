@@ -1,0 +1,88 @@
+﻿using UnityEngine;
+using System.Collections;
+using UnityEngine.UI;
+
+public class GameLogic : MonoBehaviour {
+
+    public Text txtTime;
+    public Text txtCountDown;
+    public BoxCollider2D kiwi;
+    public BoxCollider2D nest;
+
+    public static bool paused = true;
+    public static bool gameOver = false;
+    private float time;
+    private float countDown;
+    private float timeStamp;
+
+	// Use this for initialization
+	void Start () {
+        Time.timeScale = 0;
+        countDown = 3f;
+        time = 0;
+        timeStamp = Time.realtimeSinceStartup;
+	}
+
+    void StartGame()
+    {
+        Time.timeScale = 1;
+        paused = false;
+        txtCountDown.gameObject.SetActive(false);
+        BroadcastMessage("GameStart");
+    }
+
+    void CountDown()
+    {
+        if (countDown <= 0)
+        {
+            StartGame();
+            return;
+        }
+
+        float ts = Time.realtimeSinceStartup;
+        countDown -= (ts - timeStamp)*2;
+        timeStamp = ts;
+
+        txtCountDown.text = ((int)(countDown)+1).ToString();
+    }
+	
+	// Update is called once per frame
+	void Update () {
+        if (gameOver)
+        {
+            return;
+        }
+
+        if (paused)
+        {
+            CountDown();
+            return;
+        }
+
+        if (!nest.bounds.Contains(kiwi.bounds.min) || !nest.bounds.Contains(kiwi.bounds.max))
+        {
+            //            gameOver = true;
+            //            txtTime.text = "over";
+            //            BroadcastMessage("GameOver");
+
+//            BroadcastMessage("OnPauseGame");
+            gameOver = true;
+            Time.timeScale = 0;
+        }
+        else
+        {
+            time += Time.deltaTime;
+            txtTime.text = time.ToString("0.00");
+        }
+	}
+
+    void FixedUpdate()
+    {
+        
+    }
+
+    void GameOver()
+    {
+        UnityEngine.Debug.Log("GameOver GameLogic");
+    }
+}

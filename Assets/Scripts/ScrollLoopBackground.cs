@@ -1,0 +1,32 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class ScrollLoopBackground : MonoBehaviour {
+
+    private Transform cameraTransform;
+    private Vector3 newPosition;
+    private const float speed = 2f;
+    private float spriteHeight;
+    
+
+	// Use this for initialization
+	void Start () {
+        cameraTransform = Camera.main.transform;
+        var spriteRender = GetComponent<Renderer>() as SpriteRenderer;
+        spriteHeight = spriteRender.sprite.bounds.size.y;
+	}
+	
+	// Update is called once per frame
+	void Update () {
+        newPosition = transform.position;
+        newPosition.y -= Time.deltaTime * speed;
+        transform.position = newPosition;
+
+        if ((transform.position.y + spriteHeight) < cameraTransform.position.y)
+        {
+            newPosition = transform.position;
+            newPosition.y += 2.0f * spriteHeight;
+            transform.position = newPosition;
+        }
+	}
+}

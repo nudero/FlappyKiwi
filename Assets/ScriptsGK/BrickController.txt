@@ -1,0 +1,50 @@
+using UnityEngine;
+using System.Collections;
+
+public class BrickController : MonoBehaviour {
+
+    public bool left;
+
+    private Camera mainCamera;
+    private Vector3 newPosition;
+    private float speed = 3f;
+    private float width;
+    private float cameraWidth;
+
+	// Use this for initialization
+	void Start () {
+        if (left)
+        {
+            speed = -speed;
+        }
+
+        cameraWidth = Camera.main.orthographicSize *2f * Camera.main.aspect;
+
+        var spriteRender = GetComponent<Renderer>() as SpriteRenderer;
+        width = spriteRender.sprite.bounds.size.x;
+        width = width * transform.localScale.x;
+	}
+	
+	// Update is called once per frame
+	void Update () {
+        newPosition = transform.position;
+        newPosition.x += Time.deltaTime * speed;
+
+        if (width/2 - newPosition.x > cameraWidth/2)
+        {
+            newPosition.x = width/2 - cameraWidth/2;
+            speed = -speed;
+        }
+        else if (newPosition.x + width/2 > cameraWidth/2)
+        {
+            newPosition.x = cameraWidth/2 - width/2;
+            speed = -speed;
+        }
+        transform.position = newPosition;
+	}
+
+    void OnBecameInvisible()
+    {
+
+    }
+}
